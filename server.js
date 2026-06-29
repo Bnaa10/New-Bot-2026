@@ -6,7 +6,7 @@ const path = require('path');
 const os = require('os');
 
 const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const genAI = new GoogleGenerativeAI(process.env._API_KEY);
 
 // --- DATABASE SETUP ---
 const USERS_FILE = 'users.json';
@@ -776,7 +776,7 @@ bot.on('message', async (msg) => {
             const buffer = Buffer.from(arrayBuffer);
             const pdfBase64 = buffer.toString('base64');
 
-            const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
+            const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
             const extractPrompt = `You are a strict JSON data extractor. Read the PDF sequentially from page 1 to the end. Extract exactly 50 core factual questions (25 direct, 25 deep/statement-based).
             
