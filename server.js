@@ -6,7 +6,7 @@ const path = require('path');
 const os = require('os');
 
 const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
-const genAI = new GoogleGenerativeAI(process.env._API_KEY);
+const genAI = new GoogleGenerativeAI((process.env.GEMINI_API_KEY || "").trim());
 
 // --- DATABASE SETUP ---
 const USERS_FILE = 'users.json';
