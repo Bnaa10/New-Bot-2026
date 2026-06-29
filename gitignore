@@ -1,0 +1,6 @@
+node_modules/
+.env
+users.json
+admin.json
+settings.json
+deletions.json
